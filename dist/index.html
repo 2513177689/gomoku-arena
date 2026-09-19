@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173d31">
+  <meta name="description" content="双人或人机五子棋，支持三档难度。">
+  <title>对弈 · 五子棋</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23173d31'/%3E%3Cpath d='M13 32h38M32 13v38' stroke='%23c79143' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%230b100d' stroke='%23e6be77' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="play">
+      <header class="brand"><span class="seal">弈</span><div><p>GOMOKU</p><h1>对弈</h1></div></header>
+      <div class="board-frame"><canvas id="board" width="750" height="750" aria-label="十五路五子棋棋盘，点击交叉点落子"></canvas></div>
+    </section>
+    <aside class="panel">
+      <p class="eyebrow">五子棋</p>
+      <h2>开一局</h2>
+      <div class="control"><span class="label">对战模式</span><div class="segmented" role="group" aria-label="对战模式"><button class="selected" type="button" data-mode="ai" aria-pressed="true">人机对战</button><button type="button" data-mode="local" aria-pressed="false">双人对战</button></div></div>
+      <div class="control" id="difficultyControl"><label for="difficulty">电脑难度</label><select id="difficulty"><option value="easy">简单</option><option value="normal" selected>普通</option><option value="hard">困难</option></select></div>
+      <div class="turn-card"><span class="turn-stone black" id="turnStone"></span><div><small id="turnCaption">当前回合</small><strong id="turnText">黑方落子</strong></div></div>
+      <div class="players"><div class="player" id="blackPlayer"><span class="mini-stone black"></span><span><small>玩家一</small><b>执黑</b></span><em id="blackCount">0 手</em></div><div class="player" id="whitePlayer"><span class="mini-stone white"></span><span><small id="whiteName">电脑 · 普通</small><b>执白</b></span><em id="whiteCount">0 手</em></div></div>
+      <p class="rules">黑方先行，横、竖或斜线率先连成五子获胜。</p>
+      <div class="actions"><button id="undo" class="secondary" type="button" disabled>↶ 悔棋</button><button id="restart" class="primary" type="button">↻ 重新开局</button></div>
+      <p class="hint">选择模式或难度会开始新的一局</p>
+    </aside>
+  </main>
+  <dialog id="result"><div class="result-stone black" id="resultStone"></div><p>对局结束</p><h2 id="resultText">黑方获胜</h2><button id="again" type="button">再来一局</button></dialog>
+  <script src="game.js"></script>
+</body>
+</html>
