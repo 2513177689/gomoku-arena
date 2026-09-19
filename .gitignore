@@ -1,0 +1,5 @@
+# Local packaging and temporary files
+*.tar.gz
+*.zip
+.DS_Store
+Thumbs.db
